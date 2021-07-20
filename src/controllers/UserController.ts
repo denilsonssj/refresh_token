@@ -12,7 +12,7 @@ class UserController {
             username,
             password
         });
-        return response.json(user);
+        return response.json({ ...user, password: undefined });
     }
 
 }

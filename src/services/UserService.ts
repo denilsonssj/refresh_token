@@ -14,7 +14,6 @@ class UserService {
     async save({ name, username, password }: UserInfo) {
         const userRepository: UserRepository = getCustomRepository(UserRepository);
         const userAlreadyExists = await userRepository.findOne({where: { username }});
-        console.log(userAlreadyExists);
         if (userAlreadyExists) {
             throw new Error("User Already Exists");
         }
